@@ -9,12 +9,6 @@ const Catnews = ({ type }) => {
     let data;
     let finaldata;
     const fetchNews = async () => {
-
-        // const res = await fetch(
-        //   `https://api.unsplash.com/search/photos?page=1&query=${type}&client_id=fHtp17WQ5ZImZ3oZ_bf_V1NILIDGTUgakFeQJhz04fQ`
-        // );
-        // finaldata = await res.json();
-
         let date = new Date()
         let day = date.getDate();
 
@@ -23,7 +17,7 @@ const Catnews = ({ type }) => {
         );
         data = await res.json();
         // data = finaldata.articles.slice(0, 4)
-        finaldata = await data
+        finaldata = data
         finaldata.articles = finaldata.articles.slice(0, 40);
         finaldata.articles = finaldata.articles.filter(article => {
             return (article.urlToImage !== null)
